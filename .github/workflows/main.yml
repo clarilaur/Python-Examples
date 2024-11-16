@@ -25,24 +25,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pytest
+          # Add other dependencies if needed (e.g., -r requirements.txt)
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       # Run tests
       - name: Run tests
         run: |
-          pytest 
-
-      # Build Docker image
-      - name: Build Docker image
-        run: docker build -t my-image .
-
-      # Log in to Docker Hub (required before pushing the image)
-      - name: Log in to Docker Hub
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-
-      # Push Docker image
-      - name: Push Docker image
-        run: docker push my-image
-
+          pytest --maxfail=5 --disable-warnings
