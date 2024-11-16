@@ -2,31 +2,47 @@ name: Python CI/CD
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the code
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
 
+      # Install dependencies
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
-          pip install pytest 
+          python -m pip install --upgrade pip
+          pip install pytest
 
+      # Run tests
       - name: Run tests
-        run: pytest
+        run: |
+          pytest || exit 1
 
+      # Build Docker image
       - name: Build Docker image
         run: docker build -t my-image .
 
+      # Log in to Docker Hub (required before pushing the image)
+      - name: Log in to Docker Hub
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+      # Push Docker image
       - name: Push Docker image
         run: docker push my-image
+
