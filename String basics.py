@@ -69,3 +69,26 @@ print("Remaining fruits:", fruits)
 
 #A dict object is created using curly braces { } to surround the key: value pairs that comprise the dictionary contents. Ex: 
 pups= {'Rio': 10, 'Pippy': 7}
+
+#to access an entry use brackets {} ; keyerror runtime error occurs if there is no matching key
+prices = {'apples': 1.99, 'oranges': 1.49}
+
+print(f'The price of apples is {prices["apples"]}')
+print(f'\nThe price of lemons is {prices["lemons"]}')
+
+#dictionary key can be any immutable object & to add a new dictionay entry, use brackets [] and assign a value to the new key; attempting to create a new entry with a key that already exists in the dictionary replaces the existing entry.
+
+prices = {'apples': 1.99, 'oranges': 1.49}
+prices['banana'] = 1.49
+
+#del keyword is used to remove entries from a dictionary:
+del prices['papaya']
+
+#formatted string literal, or f-string, allows a programmer to create a string with placeholder expressions that are evaluated as the program executes
+f{'2*4='}
+
+#double braces {{ and }} can be used to place an actual curly brace into an f-string
+f'{{Jeff Bezos}}: Amazon'
+
+#format specification: the left "what" side is an expression to be evaluated, perhaps just a variable name or a value. The right "how" side is the format specification that determines how to show that value using special characters.
+{4:.2f}
