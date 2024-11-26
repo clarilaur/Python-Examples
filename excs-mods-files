@@ -1,0 +1,159 @@
+#The open() built-in function requires a single argument that specifies the path to the file
+open('myfile.txt')
+
+#Full path names can also be specified, as:
+open('C:\\Users\\BWayne\\tax_return.txt')
+
+The file.read() method returns the file contents as a string
+
+file.readlines() method returns a list of strings
+
+#file.write() method writes a string argument to a file
+f = open('myfile.txt', 'w')  # Open filef.write('Example string:\n  test....')  # Write stringf.close()  # Close the file
+
+#write() method accepts a string argument only. Integers and floating-point values must first be converted using str(), as in 
+f.write(str(5.75))
+
+#Numeric values must be converted to strings
+num1 = 5
+num2 = 7.5
+num3 = num1 + num2
+
+f = open('myfile.txt', 'w')
+f.write(str(num1))
+f.write(' + ')
+f.write(str(num2))
+f.write(' = ')
+f.write(str(num3))
+f.close()
+
+#will write the output buffer to disk every 100 bytes- optional buffering argument to the open() function
+f = open('myfile.txt', 'w', buffering=100)
+
+#Using flush() to force an output buffer to write to disk
+import os
+
+# Open a file with default line-buffering.f = open('myfile.txt', 'w')
+
+# No newline character, so not written to disk immediatelyf.write('Write me to a file, please!')
+
+# Force output buffer to be written to diskf.flush()
+import os
+
+# Open a file with default line-buffering.f = open('myfile.txt', 'w')
+
+# No newline character, so not written to disk immediatelyf.write('Write me to a file, please!')
+
+# Force output buffer to be written to diskf.flush()
+os.fsync(f.fileno())
+
+# ....
+
+#os.walk() function 'walks' a directory tree like the one above, visiting each subdirectory in the specified path- Walking a directory tree
+
+`import os
+
+year = input('Enter year: ')
+path = os.path.join('logs', year)
+print()
+
+for dirname, subdirs, files in os.walk(path):
+    print(dirname, 'contains subdirectories:', subdirs, end=' ')
+    print('and the files:', files)`
+
+---
+
+`Enter year:2009
+
+logs\2009 contains subdirectories: ['April', 'January'] and the files: []
+logs\2009\April contains subdirectories: ['1'] and the files: []
+logs\2009\April\1 contains subdirectories: [] and the files: ['log.txt', 'words.doc']
+logs\2009\January contains subdirectories: ['15', '21', '24'] and the files: []
+logs\2009\January\15 contains subdirectories: [] and the files: ['log.txt']
+logs\2009\January\21 contains subdirectories: [] and the files: ['log.txt', 'temp23.pdf']
+logs\2009\January\24 contains subdirectories: [] and the files: ['presentation.ppt']`
+
+#Creating a bytes object using a bytes literal:
+`my_bytes = b'This is a bytes literal'
+
+print(my_bytes)
+print(type(my_bytes))`
+
+`b'This is a bytes literal'
+<class 'bytes'>`
+
+#Byte string literals:
+print(b'123456789 is the same as \x31\x32\x33\x34\x35\x36\x37\x38\x39')
+
+#existing built-in exception types. For example, if an exception should be raised when the value of my_num is less than 0, the programmer might use a ValueError, as in 
+raise ValueError("my_num < 0")
+
+Custom exception types:define a custom exception typeclass LessThanZeroError(Exception)
+    def __init__(self, value):
+        self.value = value
+
+my_num = int(input('Enter number: '))if my_num < 0:
+    raise LessThanZeroError('my_num must be greater than 0')
+else:
+    print('my_num:', my_num)
+
+## Checking if a file is the executing script or an imported module.
+
+`if __name__ == "__main__":
+    *# File executed as a script*`
+
+If `if __name__ == "__main__"` is true, then the file is being executed as a script and the branch is taken.
+
+#this function can be used to reload and re-execute the changed module
+reload()
+
+#send_gmail.py: Sends a single email through gmail
+import smtplib
+from email.mime.text import MIMEText
+
+header = 'Hello. This is an automated email.\n\n'
+
+def send(subject, to, frm, text):
+    # The message to sendmsg = MIMEText(header + text)
+    msg['Subject'] = subject
+    msg['To'] = to
+    msg['From'] = frm
+
+    # Connect to gmail's email server and sends = smtplib.SMTP('smtp.gmail.com', port=587)
+    s.ehlo()
+    s.starttls()
+    s.login(user=frm, password='password')
+    s.sendmail(frm, [to], msg.as_string())
+    s.quit()
+
+if __name__ == "__main__":
+    send(
+        subject='A coupon for you!',
+        to='billgates@microsoft.com',
+        frm='JohnnysHotDogs1@gmail.com',
+        text='Enjoy!')
+
+#send_coupons.py script below imports send_gmail.py as a module, using the send function to deliver important messages to customers
+import os
+from importlib import reload
+import send_gmail
+
+mod_time = os.path.getmtime(send_gmail.__file__)
+
+emails = [  # Could be large list or stored in file'billgates@microsoft.com',
+    'president@whitehouse.gov',
+    'benedictxvi@vatican.va'
+]
+
+my_email = 'JohnnysHotDogs1@gmail.com'
+subject = 'A coupon for you!'
+text = ("As a loyal customer of Johnny's HotDogs, "
+        "here is a coupon for 1 free bratwurst!")
+
+for addr in emails:
+    send_gmail.send(subject, addr, my_email, text)
+
+    # Check if file has been modifiedlast_mod = os.path.getmtime(send_gmail.__file__) 
+    if last_mod > mod_time:
+        mod_time = last_mod
+        reload(send_gmail)
