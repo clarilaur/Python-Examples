@@ -1,0 +1,51 @@
+#function definition consists of the function's name and a block of statements. Ex: 
+def calc_pizza_area():
+
+#built-in functions, such as:
+input(), int(), len()
+
+#None is a special keyword that indicates no value.
+None
+
+#parameter is a function input specified in a function definition. Ex: 
+A pizza area function might have diameter as an input
+
+#argument: A pizza area function might be called as
+calc_pizza_area(12.0) or as calc_pizza_area(16.0)
+
+#argument may be an expression, like 
+12.0, x, or x * 1.5
+
+#function definition with no parameters must still have the parentheses, as in: 
+def calc_something():
+
+#The call to such a function must include parentheses, and they must be empty, as in: 
+calc_something()
+
+#Hierarchical function call: wherein the input() function is called and evaluates to a value that is then passed as an argument to the int() function
+user_input = int(input())
+
+#A function with no return statement is called a void function, and such a function returns the value 
+None
+
+#A function is also an object in Python, having a type, identity, and value. A function definition like below creates a new function object with the name print_face bound to that object
+def print_face():
+
+#utilizes unpacking to perform multiple assignments at once
+The statement average, standard_deviation = get_grade_stats(student_scores)
+
+#help() function can aid a programmer by providing them with all the documentation associated with an object
+help(ticket_price) would print out the docstring for the ticket_price()
+
+#examples:
+def calculate_area (length, width):
+  result = length * width
+  return result
+print(calculate_area(5, 3))
+print(calculate_area(7, 2))
+
+def celsius_to_fahrenheit (Celsius):
+  Fahrenheit = (Celsius * 9/5) + 32
+  return(Fahrenheit)
+print(celsius_to_fahrenheit(0))
+print(celsius_to_fahrenheit(25))
