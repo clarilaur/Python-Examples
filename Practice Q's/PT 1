@@ -1,0 +1,125 @@
+#QUESTION 1 (c2)  
+print('  NO PARKING')
+print('2:00 - 6:00 a.m.')
+
+#QUESTION 2(c2):
+first_name = input()
+generic_location=input()
+whole_number=input()
+plural_noun=input()
+
+print(first_name, 'went to', generic_location, 'to buy', whole_number, 'different types of', plural_noun)
+#QUESTION 3(c3):
+quarters=.25*float(input())
+dimes=.10*float(input())
+nickels=.05*float(input())
+pennies=.01*float(input())
+
+dollars=quarters+dimes+nickels+pennies
+print(f'Amount: ${dollars:.2f}')
+
+#QUESTION 4(c3):
+milesgallon = float(input())
+dollarsgallon = float(input())
+
+gastcost1 = (20/milesgallon)*dollarsgallon
+gastcost2 = (75/milesgallon)*dollarsgallon
+gastcost3 = (500/milesgallon)*dollarsgallon
+
+print(f'{gastcost1:.2f} {gastcost2:.2f} {gastcost3:.2f}')
+
+#Question 5(c4):
+base_char = input()
+head_char = input()
+
+row1 = '      ' + head_char
+row2 = base_char+base_char+base_char+base_char+base_char+base_char+ head_char+ head_char
+row3 = base_char+base_char+base_char+base_char+base_char+base_char+ head_char+ head_char+ head_char
+
+print(row1)
+print(row2)
+print(row3)
+print(row2)
+print(row1)
+
+#Question 6(c4):
+phone_number = int(input())
+
+areacode = (phone_number//10000000)
+prefix = ((phone_number % 10000000)//10000)
+linenumber = (phone_number % 10000)
+
+print(f'({areacode}) {prefix}-{linenumber}')
+
+#Question 7 (c5):***
+num1 = int(input())
+num2 = int(input())
+num3 = int(input())
+
+if num1 <= num2 and num1 <= num3:
+    print(num1)
+elif num2 <= num1 and num2 <= num3:
+    print(num2)
+else:
+    print(num3)
+
+#Question 8 (c5):
+first = int(input())
+second = int(input())
+
+if first > second:
+    print("Second integer can't be less than the first.", end="")
+else:
+    while first <= second:
+        print(first, end=" ")
+        first += 5
+print()
+
+#Question 9 (c6):*****
+first = int(input())
+second = int(input())
+
+if first > second:
+    print("Second integer can't be less than the first.", end="")
+else:
+    while first <= second:
+        print(first, end=" ")
+        first += 5
+print()
+
+#Question 10 (c6):*****
+while True:
+  text = input()
+  if text in {"Done", "done", "d"}:  # Check termination conditions
+      break
+  print(text[::-1])  # Reverse the input string and print it
+
+#Question 11 (c7):******
+def fibonacci(n):
+    if n < 0:  # Handle negative index values
+        return -1
+    elif n == 0:  # The 0th Fibonacci number is 0
+        return 0
+    elif n == 1:  # The 1st Fibonacci number is 1
+        return 1
+    else:
+        # Calculate the Fibonacci number for n > 1
+        a, b = 0, 1  # Start with the first two Fibonacci numbers
+        for _ in range(2, n + 1):  # Loop to calculate up to the nth number
+            a, b = b, a + b
+        return b
+
+
+if __name__ == '__main__':
+    start_num = int(input())
+    print(f'fibonacci({start_num}) is {fibonacci(start_num)}')
+
+#Question 12 (c7):
+def calc_average(nums):
+    total = sum(nums)  # Calculate the sum of the list
+    average = total / len(nums)  # Divide by the number of elements
+    return float(average)
+
+if __name__ == '__main__':
+    nums = [1, 2, 3, 4, 5]
+    print(calc_average(nums))   # calc_average() should return 3.0
