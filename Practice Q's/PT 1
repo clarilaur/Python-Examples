@@ -64,16 +64,44 @@ else:
     print(num3)
 
 #Question 8 (c5):
-first = int(input())
-second = int(input())
+ Input: Total change amount in cents
+totalChangeAmount = int(input())
 
-if first > second:
-    print("Second integer can't be less than the first.", end="")
+# Coin values in cents
+dollar = 100
+quarter = 25
+dime = 10
+nickel = 5
+penny = 1
+
+# Calculate the number of each coin
+dollars_count = totalChangeAmount // dollar
+totalChangeAmount %= dollar
+
+quarters_count = totalChangeAmount // quarter
+totalChangeAmount %= quarter
+
+dimes_count = totalChangeAmount // dime
+totalChangeAmount %= dime
+
+nickels_count = totalChangeAmount // nickel
+totalChangeAmount %= nickel
+
+pennies_count = totalChangeAmount // penny
+
+# Output the results with proper singular/plural naming
+if dollars_count > 0:
+    print(f"{dollars_count} Dollar{'s' if dollars_count > 1 else ''}")
+if quarters_count > 0:
+    print(f"{quarters_count} Quarter{'s' if quarters_count > 1 else ''}")
+if dimes_count > 0:
+    print(f"{dimes_count} Dime{'s' if dimes_count > 1 else ''}")
+if nickels_count > 0:
+    print(f"{nickels_count} Nickel{'s' if nickels_count > 1 else ''}")
+if pennies_count > 0:
+    print(f"{pennies_count} Penn{'ies' if pennies_count > 1 else 'y'}")
 else:
-    while first <= second:
-        print(first, end=" ")
-        first += 5
-print()
+    print('No change')
 
 #Question 9 (c6):*****
 first = int(input())
