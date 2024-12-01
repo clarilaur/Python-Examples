@@ -123,3 +123,244 @@ def calc_average(nums):
 if __name__ == '__main__':
     nums = [1, 2, 3, 4, 5]
     print(calc_average(nums))   # calc_average() should return 3.0
+
+#Question 13 (c10):***
+def get_num_of_characters(user_string):
+    # Initialize a counter to count characters
+    count = 0
+    # Loop through each character in the string
+    for char in user_string:
+        count += 1
+    return count
+
+def output_without_whitespace(user_string):
+    # Remove all spaces and tabs from the string
+    no_whitespace = ''.join(user_string.split())
+    return no_whitespace
+
+def main():
+    # Prompt the user for input
+    user_string = input("Enter a sentence or phrase:\n")
+    
+    # Output the entered string
+    print(f"\nYou entered: {user_string}")
+    
+    # Call the get_num_of_characters function and output the result
+    num_characters = get_num_of_characters(user_string)
+    print(f"\nNumber of characters: {num_characters}")
+    
+    # Call the output_without_whitespace function and output the result
+    no_whitespace_string = output_without_whitespace(user_string)
+    print(f"String with no whitespace: {no_whitespace_string}")
+
+# Call the main function
+if __name__ == "__main__":
+    main()
+
+#Question 14 (c10):**
+def is_palindrome(input_string):
+    cleaned_string = input_string.replace(" ", "").lower()
+    if cleaned_string == cleaned_string[::-1]:
+        return True
+    else:
+        return False
+
+def main():
+    user_input = input("")
+    
+    if is_palindrome(user_input):
+        print(f"{user_input} is a palindrome")
+    else:
+        print(f"{user_input} is not a palindrome")
+
+main()
+
+#Question 15 (c10):**
+def get_month_as_int(monthString):
+
+    if monthString == 'January':
+        month_int = 1
+    elif monthString == 'February':
+        month_int = 2
+    elif monthString == 'March':
+        month_int = 3
+    elif monthString == 'April':
+        month_int = 4
+    elif monthString == 'May':
+        month_int = 5
+    elif monthString == 'June':
+        month_int = 6
+    elif monthString == 'July':
+        month_int = 7
+    elif monthString == 'August':
+        month_int = 8
+    elif monthString == 'September':
+        month_int = 9
+    elif monthString == 'October':
+        month_int = 10
+    elif monthString == 'November':
+        month_int = 11
+    elif monthString == 'December':
+        month_int = 12
+    else:
+        month_int = 0
+
+    return month_int
+
+while True:
+    user_string = input()
+
+    if user_string == "-1":
+        break
+
+    # Split the input string into parts
+    tokens = user_string.split()
+
+    # Check if the date follows the correct format
+    if len(tokens) == 3 and "," in tokens[1]:
+        month = get_month_as_int(tokens[0])
+        try:
+            day = int(tokens[1].strip(","))
+            year = int(tokens[2])
+
+            # Check if the month is valid
+            if month != 0:
+                # Output the date in m/d/yyyy format
+                print(f"{month}/{day}/{year}")
+        except ValueError:
+            # Ignore invalid day or year values
+            continue
+#Question 16 (c11):***
+services = { 'Air freshener' : 1 , 'Rain repellent': 2, 'Tire shine' : 2, 'Wax' : 3, 'Vacuum' : 5 }
+base_wash = 10
+total = base_wash
+
+service_choice1 = input()
+service_choice2 = input()
+
+print("ZyCar Wash")
+print(f"Base car wash -- ${base_wash}")
+
+# Process the first additional service
+if service_choice1 != "-":
+    print(f"{service_choice1} -- ${services[service_choice1]}")
+    total += services[service_choice1]
+
+# Process the second additional service
+if service_choice2 != "-":
+    print(f"{service_choice2} -- ${services[service_choice2]}")
+    total += services[service_choice2]
+
+# Print the total price
+print("----")
+print(f"Total price: ${total}")
+
+#Question 17 (c12):
+try:
+    # Read integers from the user
+    user_num = int(input())
+    div_num = int(input())
+    
+    # Perform division and output the result
+    result = user_num // div_num
+    print(result)
+
+# Catch division by zero exception
+except ZeroDivisionError as e:
+    print(f"Zero Division Exception: {e}")
+
+# Catch invalid input exception
+except ValueError as e:
+    print(f"Input Exception: {e}")
+
+#Question 18 (c12):
+def steps_to_miles(steps):
+    """Converts steps to miles. Raises ValueError for negative steps."""
+    if steps < 0:
+        raise ValueError("Exception: Negative step count entered.")
+    return steps / 2000
+
+def main():
+    try:
+        # Read number of steps from the user
+        steps = int(input())
+        
+        # Call the steps_to_miles() function and print the result
+        miles = steps_to_miles(steps)
+        print(f'{miles:.2f}')
+    
+    except ValueError as e:
+        # Catch and output the exception message
+        print(e)
+
+# Run the main function
+if __name__ == "__main__":
+    main()
+
+#Question 19 (c14):
+def main():
+    # Read inputs from the user
+    word = input().strip().lower()  # The word to find synonyms for
+    letter = input().strip().lower()  # The letter to filter synonyms by
+
+    # Initialize an empty dictionary to store synonyms
+    synonyms_dict = {}
+
+    try:
+        # Open the corresponding file for the word
+        filename = f"{word}.txt"
+        with open(filename, 'r') as file:
+            # Process each line in the file
+            for line in file:
+                synonyms = line.strip().split()  # Split line into words
+                if synonyms:  # Ensure the line is not empty
+                    first_letter = synonyms[0][0].lower()  # Get the first letter of the first synonym
+                    # Add synonyms to the dictionary under the first letter
+                    synonyms_dict.setdefault(first_letter, []).extend(synonyms)
+
+        # Output the synonyms that start with the given letter
+        if letter in synonyms_dict:
+            for synonym in synonyms_dict[letter]:
+                print(synonym)
+        else:
+            print(f"No synonyms for {word} begin with {letter}.")
+    
+    except FileNotFoundError:
+        print(f"The file {filename} does not exist.")
+
+if __name__ == "__main__":
+    main()
+
+#Question 20 (c14)***:
+import csv
+
+def main():
+    # Get the filename from the user
+    filename = input()
+
+    # Create a dictionary to store the word counts
+    word_count = {}
+
+    try:
+        # Open the CSV file for reading
+        with open(filename, 'r') as file:
+            reader = csv.reader(file)
+            for row in reader:
+                # Iterate through each word in the row
+                for word in row:
+                    word = word.strip()  # Remove leading/trailing spaces
+                    if word in word_count:
+                        word_count[word] += 1
+                    else:
+                        word_count[word] = 1
+        
+        # Output each word and its frequency
+        for word, count in word_count.items():
+            print(f"{word} {count}")
+    
+    except FileNotFoundError:
+        print(f"Error: The file {filename} was not found.")
+
+if __name__ == "__main__":
+    main()
+
