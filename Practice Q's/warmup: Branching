@@ -1,0 +1,19 @@
+request= (input())
+print('Enter desired auto service:')
+
+
+print('You entered: ', end='')
+print(request)
+
+
+if request == 'Oil change':
+    print('Cost of oil change: $',end='')
+    print(35)
+elif request == 'Tire rotation':
+    print('Cost of tire rotation: $',end='')
+    print(19)
+elif request == 'Car wash':
+    print('Cost of car wash: $',end='')
+    print(7)
+else:
+    print('Error: Requested service is not recognized')
