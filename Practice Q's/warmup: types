@@ -1,0 +1,28 @@
+# TODO: Finish reading another word and an integer into variables. 
+# Output all the values on a single line
+favorite_color = input()
+pet_name = input()
+randomn = int(input())
+
+
+print('You entered:', end=' ')
+print(favorite_color, end=' ')
+print(pet_name, end=' ')
+print(randomn)
+
+
+
+# TODO: Output two password options
+password1 = favorite_color+ '_'+pet_name
+print(f'\nFirst password:',end=' ')
+print(password1)
+
+password2 = str(randomn) + favorite_color + str(randomn)
+print('Second password: ', end='')
+print(password2)
+
+# TODO: Output the length of the two password options
+print(f'\nNumber of characters in', password1, end='')
+print(':',len(password1))
+print('Number of characters in', password2, end='')
+print(':',len(password2))
