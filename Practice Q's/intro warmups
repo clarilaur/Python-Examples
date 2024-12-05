@@ -1,0 +1,36 @@
+#first:
+print('Hello world!')
+print('How are you?')
+print("   (I'm fine).")
+
+#second:
+user_num = int(input('Enter integer:\n'))
+user_num2 = int(input())
+
+squared= user_num * user_num
+cubed= user_num ** 3
+
+sumo= user_num + user_num2
+product= user_num * user_num2
+
+print('You entered:', user_num)
+print(user_num, 'squared is', squared)
+print('And', user_num, 'cubed is', cubed,'!!')
+print('Enter another integer:')
+print(user_num,'+',user_num2,'is',sumo)
+print(user_num,'*',user_num2,'is',product)
+
+#third
+print('   *')
+print('  ***')
+print(' *****')
+print('*******')
+print('  ***')
+print()
+print()
+print('/',end='')
+print('\\',' ','/',end='')
+print('\\')
+print('  o o')
+print(' =   =')
+print('  ---')
