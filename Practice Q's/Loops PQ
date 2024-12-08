@@ -1,0 +1,14 @@
+#Countdown until matching digits
+
+number = int(input())
+
+if 11 <= number <= 100:
+    while True:
+        print(number)
+        
+        if len(str(number)) == 2 and str(number)[0] == str(number)[1]:
+            break       
+        number -= 1
+    
+else: 
+    print('Input must be 11-100')
