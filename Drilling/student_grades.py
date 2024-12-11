@@ -11,6 +11,10 @@ if 'Pippy' in student_grades:
     print(student_grades.get('Pippy'))
     print(student_grades.get('Rio'))
 
-while 'Pippy' <= str(70):
+if student_grades['Pippy'] <= 70:
     print('Keep going pipper-chino you got this!')
-print('You did it baby!')
+else:
+    print('You did it baby!')
+
+for student in student_grades:
+    print('{}, you earned {} on the final exam'.format(student, student_grades[student]))
