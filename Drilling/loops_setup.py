@@ -7,6 +7,12 @@ while temp >= 32:
     temp-= 1
 print('it is freezing')
 
+era = 2024
+while era < 2030:
+    print(era)
+    era+= 1
+print('New era loading!')
+
 #ranges
 
 sum = 0
