@@ -1,0 +1,8 @@
+def print_feet_inch_short(num_feet,num_inches):
+    print(f"{user_feet}' {user_inches}", end='')
+    print('"')
+
+user_feet = int(input())
+user_inches = int(input())
+
+print_feet_inch_short(user_feet, user_inches)
