@@ -1,6 +1,0 @@
-def calc_total_inches(num_feet,num_inches):
-    total_number_of_inches= (num_feet*12)+num_inches
-    return total_number_of_inches
-feet = int(input())
-inches = int(input())
-print('Total inches:', calc_total_inches(feet, inches))
