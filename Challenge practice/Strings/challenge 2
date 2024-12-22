@@ -1,0 +1,5 @@
+#air_temperature with 1 decimal point followed by C.
+
+air_temperature = float(input())
+
+print(f'{air_temperature:.1f}C')
