@@ -1,0 +1,8 @@
+#Sort short_names in reverse alphabetic order
+
+user_input = input()
+short_names = user_input.split()
+
+short_names.sort(reverse=True)
+
+print(short_names)
