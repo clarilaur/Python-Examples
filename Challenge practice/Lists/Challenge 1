@@ -1,0 +1,9 @@
+#deleting the first element and changing the last element to Joe.
+
+user_input = input()
+short_names = user_input.split()
+
+del short_names[0]
+short_names[-1] = 'Joe'
+
+print(short_names)
