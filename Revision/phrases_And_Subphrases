@@ -1,0 +1,10 @@
+one = input()
+two = input()
+if one == two:
+    print('Both phrases match')
+elif one in two:
+    print(f'{one} is found within {two}')
+elif two in one:
+    print(f'{two} is found within {one}')
+else:
+    print('No matches')
