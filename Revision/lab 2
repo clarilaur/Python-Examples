@@ -1,0 +1,9 @@
+import math
+
+num_people = int(input())
+
+whole_pizza = math.ceil(num_people/6)
+cost = int(whole_pizza) * 14.95
+
+print('Pizzas:', whole_pizza)
+print(f'Cost: ${cost:.2f}')
