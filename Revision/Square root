@@ -1,0 +1,7 @@
+import math
+
+num = float(input())
+
+converttosqrt = math.sqrt(num)
+
+print('Sqrt:', converttosqrt)
