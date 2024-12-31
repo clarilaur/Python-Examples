@@ -1,0 +1,12 @@
+seconds = int(input())
+
+hours = int(seconds) // 3600
+
+minute = (int(seconds) % 3600)//60
+
+secs =(int(seconds) % 3600)%60
+
+
+print('Hours:', hours)
+print('Minutes:', minute)
+print('Seconds:', secs)
