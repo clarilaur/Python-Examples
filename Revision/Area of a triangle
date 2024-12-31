@@ -1,0 +1,11 @@
+import math
+
+a = float(input())
+b = float(input())
+c = float(input())
+
+s = (a+b+c)/2
+
+Apple= math.sqrt(s * (s - a) * (s - b) * (s - c))
+
+print(f'The area of the triangle is: {Apple:.3f}')
