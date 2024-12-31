@@ -1,0 +1,7 @@
+pizzaorder = int(input())
+
+subtotal = pizzaorder * 9.99
+
+salestax = (subtotal * .06) + subtotal
+print(f'Subtotal: ${subtotal:.2f}')
+print(f'Total due: ${salestax:.2f}')
