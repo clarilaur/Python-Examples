@@ -1,0 +1,12 @@
+def caught_speeding(speed, is_birthday):
+  if is_birthday:
+    speed = speed + 5
+  
+  if speed <= 60:
+    result = 0
+  elif 61 <= speed <= 80:
+    result = 1
+  elif speed >= 81:
+    result = 2
+  
+  return result
