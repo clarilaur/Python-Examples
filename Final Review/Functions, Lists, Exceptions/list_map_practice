@@ -1,0 +1,7 @@
+numbers = ['1', '2', '3', '4', '5']
+
+for item in numbers:
+    convert = list(map(lambda x: int(x) ** 2, numbers))
+
+
+print(convert)
