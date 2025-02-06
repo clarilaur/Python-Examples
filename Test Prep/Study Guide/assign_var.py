@@ -1,0 +1,5 @@
+a = int(input())
+b = int(input())
+c = int(input())
+total_miles_traveled = (a*15.62) + (b*41.85) + (c*32.67)
+print(f'Distance: {total_miles_traveled} miles')
